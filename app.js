@@ -1,57 +1,62 @@
-const toast = document.getElementById("toast");
-const searchButton = document.getElementById("searchButton");
-const searchPanel = document.getElementById("searchPanel");
-const searchInput = document.getElementById("searchInput");
+const header = document.getElementById('header');
+const toast = document.getElementById('toast');
+const searchToggle = document.getElementById('searchToggle');
+const searchBox = document.getElementById('searchBox');
+const searchInput = document.getElementById('searchInput');
 
-function showToast(message) {
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 35);
+});
+
+function notify(message) {
   toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(window.__toastTimer);
-  window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+  toast.classList.add('show');
+  clearTimeout(window.cineflowToast);
+  window.cineflowToast = setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-document.getElementById("watchHero").addEventListener("click", () => {
-  showToast("Player será conectado na próxima etapa.");
+document.getElementById('watchHero').addEventListener('click', () => {
+  notify('🎬 Player interno será conectado na próxima etapa.');
 });
 
-document.getElementById("detailsHero").addEventListener("click", () => {
-  showToast("Página de detalhes entra na próxima versão.");
+document.getElementById('infoHero').addEventListener('click', () => {
+  notify('ⓘ Página completa do filme será nossa próxima evolução.');
 });
 
-searchButton.addEventListener("click", () => {
-  searchPanel.hidden = !searchPanel.hidden;
-  if (!searchPanel.hidden) {
-    searchInput.focus();
-  }
+searchToggle.addEventListener('click', () => {
+  searchBox.classList.toggle('open');
+  if (searchBox.classList.contains('open')) searchInput.focus();
 });
 
-searchInput.addEventListener("input", (event) => {
-  const query = event.target.value.trim().toLowerCase();
-  document.querySelectorAll(".card").forEach((card) => {
-    const title = (card.dataset.title || "").toLowerCase();
-    card.style.display = !query || title.includes(query) ? "" : "none";
+searchInput.addEventListener('input', e => {
+  const term = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.movie-card').forEach(card => {
+    const title = card.dataset.title.toLowerCase();
+    card.classList.toggle('hidden-card', term && !title.includes(term));
   });
 });
 
-document.querySelectorAll("[data-scroll]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const rail = document.getElementById(button.dataset.scroll);
-    rail.scrollBy({ left: rail.clientWidth * 0.85, behavior: "smooth" });
+document.querySelectorAll('[data-target]').forEach(button => {
+  button.addEventListener('click', () => {
+    const row = document.getElementById(button.dataset.target);
+    row.scrollBy({ left: Math.max(450, row.clientWidth * .75), behavior: 'smooth' });
   });
 });
 
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("click", () => {
-    showToast(`${card.dataset.title}: detalhes em breve.`);
-  });
+document.querySelectorAll('.movie-card').forEach(card => {
+  card.addEventListener('click', () => notify(`▶ ${card.dataset.title} — detalhes em breve.`));
 });
 
-const navLinks = document.querySelectorAll(".mobile-nav a, .desktop-nav a");
+const mobileLinks = document.querySelectorAll('.mobile-nav a');
+mobileLinks.forEach(link => link.addEventListener('click', () => {
+  mobileLinks.forEach(x => x.classList.remove('active'));
+  link.classList.add('active');
+}));
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.forEach((item) => item.classList.remove("active"));
-    document.querySelectorAll(`a[href="${link.getAttribute("href")}"]`)
-      .forEach((item) => item.classList.add("active"));
+document.querySelectorAll('.dot').forEach((dot, index, dots) => {
+  dot.addEventListener('click', () => {
+    dots.forEach(x => x.classList.remove('active'));
+    dot.classList.add('active');
+    if (index > 0) notify('Novos destaques serão adicionados em breve.');
   });
 });

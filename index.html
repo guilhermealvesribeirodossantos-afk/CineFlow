@@ -4,299 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#050505">
-  <meta name="description" content="CineFlow — filmes e séries em uma experiência de streaming premium.">
-  <title>CineFlow — Filmes e Séries</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <meta name="description" content="CineFlow — sua experiência premium de filmes e séries.">
+  <title>CineFlow</title>
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
 <header class="topbar" id="topbar">
-  <a class="brand" href="#inicio" aria-label="CineFlow">
-    CINE<span>FLOW</span>
-  </a>
+  <a class="brand" href="#inicio">CINE<span>FLOW</span></a>
 
-  <nav class="desktop-nav" aria-label="Navegação principal">
-    <a class="active" href="#inicio">⌂ Início</a>
+  <nav class="desktop-nav">
+    <a class="active" href="#inicio">Início</a>
     <a href="#filmes">Filmes</a>
     <a href="#series">Séries</a>
-    <a href="#categorias">Categorias⌄</a>
-    <a href="#minha-lista">＋ Minha Lista</a>
+    <a href="#minha-lista">Minha Lista</a>
   </nav>
 
   <div class="header-actions">
     <div class="search-wrap" id="searchWrap">
-      <span class="search-icon">⌕</span>
-      <input id="searchInput" type="search" placeholder="Pesquisar filmes, séries..." autocomplete="off">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Filmes, séries e gêneros">
     </div>
-
-    <button class="icon-btn" aria-label="Notificações">♧</button>
-    <button class="avatar-btn" aria-label="Perfil"></button>
-    <button class="mobile-search" id="mobileSearch" aria-label="Abrir busca">⌕</button>
+    <button class="mobile-search" id="mobileSearch">⌕</button>
+    <button class="avatar-btn" aria-label="Perfil">CF</button>
   </div>
 </header>
 
 <main>
   <section class="hero" id="inicio">
-    <div class="hero-art">
-      <div class="sun"></div>
-      <div class="ruins r1"></div>
-      <div class="ruins r2"></div>
-      <div class="person">
-        <div class="head"></div>
-        <div class="body"></div>
-        <div class="pack"></div>
-      </div>
-    </div>
+    <div class="hero-backdrop" id="heroBackdrop"></div>
+    <div class="hero-shade"></div>
 
-    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-kicker">CINEFLOW ORIGINAL</span>
+      <h1 id="heroTitle">THE LAST<br>DISCOVERY</h1>
 
-    <button class="hero-arrow left" aria-label="Destaque anterior">‹</button>
-    <button class="hero-arrow right" aria-label="Próximo destaque">›</button>
-
-    <div class="hero-copy">
-      <div class="nfilm"><b>N</b> FILME</div>
-
-      <h1>THE LAST<br>DISCOVERY</h1>
-
-      <div class="meta">
-        <span>2024</span>
-        <span class="age red">16</span>
+      <div class="hero-meta">
+        <span class="match">98% relevante</span>
+        <span>2026</span>
+        <span class="age">16</span>
         <span>2h 18min</span>
-        <span class="tag">HD</span>
+        <span class="quality">4K</span>
       </div>
 
-      <p>
-        Em um mundo pós-apocalíptico, um sobrevivente solitário descobre
-        um segredo que pode mudar o destino da humanidade.
+      <p id="heroDescription">
+        Em um mundo transformado, uma descoberta esquecida pode ser a última
+        esperança para reconstruir o futuro.
       </p>
 
-      <div class="hero-buttons">
-        <button id="playHero" class="play">▶ Assistir</button>
-        <button id="moreHero" class="more">ⓘ Mais informações</button>
+      <div class="hero-actions">
+        <button class="btn-play" id="playHero">▶ Assistir</button>
+        <button class="btn-info" id="moreHero">ⓘ Mais informações</button>
+        <button class="btn-add" id="addHero" aria-label="Adicionar à Minha Lista">＋</button>
       </div>
     </div>
 
-    <div class="dots" aria-label="Destaques">
-      <button class="active" aria-label="Destaque 1"></button>
-      <button aria-label="Destaque 2"></button>
-      <button aria-label="Destaque 3"></button>
-      <button aria-label="Destaque 4"></button>
-      <button aria-label="Destaque 5"></button>
+    <div class="hero-dots" id="heroDots">
+      <button class="active"></button>
+      <button></button>
+      <button></button>
+      <button></button>
     </div>
   </section>
 
   <section class="catalog">
-
-    <section class="row-section" id="filmes">
-      <div class="section-head">
-        <h2><span>↗</span> Em alta agora</h2>
-        <button class="row-next" data-row="trending" aria-label="Avançar em alta">›</button>
+    <section class="content-row" id="continuar">
+      <div class="row-title">
+        <h2>Continuar assistindo</h2>
+        <button class="see-all">Ver tudo</button>
       </div>
-
-      <div class="cards-row" id="trending">
-        <article class="card" data-title="Redenção">
-          <div class="cover c1">
-            <span class="quality">4K</span>
-            <div class="portrait"></div>
-            <b>JOHN<br>REDEMPTION</b>
-          </div>
-          <div class="info">
-            <strong>Redenção</strong>
-            <small>2024 <i class="age red">16</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="Sombra do Medo">
-          <div class="cover c2">
-            <span class="quality">HD</span>
-            <div class="portrait woman"></div>
-            <b>SOMBRA<br>DO MEDO</b>
-          </div>
-          <div class="info">
-            <strong>Sombra do Medo</strong>
-            <small>2024 <i class="age red">16</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="O Último Guerreiro">
-          <div class="cover c3">
-            <span class="quality">4K</span>
-            <div class="portrait"></div>
-            <b>O ÚLTIMO<br>GUERREIRO</b>
-          </div>
-          <div class="info">
-            <strong>O Último Guerreiro</strong>
-            <small>2023 <i class="age orange">14</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="Além do Silêncio">
-          <div class="cover c4">
-            <span class="quality">HD</span>
-            <div class="portrait masked"></div>
-            <b>ALÉM DO<br>SILÊNCIO</b>
-          </div>
-          <div class="info">
-            <strong>Além do Silêncio</strong>
-            <small>2024 <i class="age green">L</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="Ecos do Passado">
-          <div class="cover c5">
-            <span class="quality">HD</span>
-            <div class="portrait woman"></div>
-            <b>ECOS DO<br>PASSADO</b>
-          </div>
-          <div class="info">
-            <strong>Ecos do Passado</strong>
-            <small>2024 <i class="age orange">14</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="Jurassic Dominion">
-          <div class="cover c6">
-            <span class="quality">4K</span>
-            <div class="dino"></div>
-            <b>JURASSIC<br>DOMINION</b>
-          </div>
-          <div class="info">
-            <strong>Jurassic Dominion</strong>
-            <small>2022 <i class="age orange">14</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="A Última Noite">
-          <div class="cover c7">
-            <span class="quality">HD</span>
-            <div class="clown"></div>
-            <b>A ÚLTIMA<br>NOITE</b>
-          </div>
-          <div class="info">
-            <strong>A Última Noite</strong>
-            <small>2023 <i class="age red">16</i></small>
-          </div>
-        </article>
-
-        <article class="card" data-title="Cidade Perdida">
-          <div class="cover c8">
-            <span class="quality">HD</span>
-            <b>CIDADE<br>PERDIDA</b>
-          </div>
-          <div class="info">
-            <strong>Cidade Perdida</strong>
-            <small>2024 <i class="age orange">14</i></small>
-          </div>
-        </article>
-      </div>
+      <div class="cards landscape" id="continueRow"></div>
     </section>
 
-    <section class="row-section">
-      <div class="section-head">
-        <h2><span>🚀</span> Lançamentos</h2>
-        <div class="head-actions">
-          <button class="see-all">Ver todos</button>
-          <button class="row-next" data-row="releases" aria-label="Avançar lançamentos">›</button>
-        </div>
+    <section class="content-row" id="filmes">
+      <div class="row-title">
+        <h2>🔥 Em alta agora</h2>
+        <button class="see-all">Ver tudo</button>
       </div>
-
-      <div class="cards-row" id="releases">
-        <article class="card" data-title="Entre Dois Mundos">
-          <div class="cover c9"><span class="quality">4K</span><div class="portrait"></div><b>ENTRE<br>DOIS MUNDOS</b></div>
-          <div class="info"><strong>Entre Dois Mundos</strong><small>2024 <i class="age red">16</i></small></div>
-        </article>
-
-        <article class="card" data-title="O Preço da Vingança">
-          <div class="cover c10"><span class="quality">HD</span><div class="portrait"></div><b>O PREÇO DA<br>VINGANÇA</b></div>
-          <div class="info"><strong>O Preço da Vingança</strong><small>2024 <i class="age red">16</i></small></div>
-        </article>
-
-        <article class="card" data-title="Queda Final">
-          <div class="cover c11"><span class="quality">HD</span><div class="portrait"></div><b>QUEDA<br>FINAL</b></div>
-          <div class="info"><strong>Queda Final</strong><small>2024 <i class="age orange">14</i></small></div>
-        </article>
-
-        <article class="card" data-title="Tempestade Infinita">
-          <div class="cover c12"><span class="quality">4K</span><div class="portrait masked"></div><b>TEMPESTADE<br>INFINITA</b></div>
-          <div class="info"><strong>Tempestade Infinita</strong><small>2024 <i class="age green">L</i></small></div>
-        </article>
-
-        <article class="card" data-title="Linha do Tempo">
-          <div class="cover c13"><span class="quality">HD</span><div class="portrait"></div><b>LINHA<br>DO TEMPO</b></div>
-          <div class="info"><strong>Linha do Tempo</strong><small>2024 <i class="age orange">14</i></small></div>
-        </article>
-
-        <article class="card" data-title="O Segredo de Alice">
-          <div class="cover c14"><span class="quality">HD</span><div class="portrait woman"></div><b>O SEGREDO DE<br>ALICE</b></div>
-          <div class="info"><strong>O Segredo de Alice</strong><small>2024 <i class="age orange">14</i></small></div>
-        </article>
-      </div>
+      <div class="cards" id="trendingRow"></div>
     </section>
 
-    <section class="row-section" id="series">
-      <div class="section-head">
-        <h2><span>▣</span> Séries populares</h2>
-        <div class="head-actions">
-          <button class="see-all">Ver todos</button>
-          <button class="row-next" data-row="seriesRow" aria-label="Avançar séries">›</button>
-        </div>
+    <section class="content-row">
+      <div class="row-title">
+        <h2>✨ Lançamentos</h2>
+        <button class="see-all">Ver tudo</button>
       </div>
-
-      <div class="cards-row" id="seriesRow">
-        <article class="card" data-title="The Witcher">
-          <div class="cover c17"><span class="quality">4K</span><div class="portrait silver"></div><b>THE<br>WITCHER</b></div>
-          <div class="info"><small>3 Temporadas <i class="age red">16</i></small></div>
-        </article>
-
-        <article class="card" data-title="Stranger Things">
-          <div class="cover c18"><span class="quality">HD</span><div class="portrait"></div><b>STRANGER<br>THINGS</b></div>
-          <div class="info"><small>4 Temporadas <i class="age orange">14</i></small></div>
-        </article>
-
-        <article class="card" data-title="La Casa de Papel">
-          <div class="cover c19"><span class="quality">4K</span><div class="portrait woman"></div><b>LA CASA<br>DE PAPEL</b></div>
-          <div class="info"><small>5 Temporadas <i class="age red">16</i></small></div>
-        </article>
-
-        <article class="card" data-title="The Boys">
-          <div class="cover c20"><span class="quality">HD</span><div class="portrait"></div><b>THE<br>BOYS</b></div>
-          <div class="info"><small>4 Temporadas <i class="age red">16</i></small></div>
-        </article>
-
-        <article class="card" data-title="Vikings">
-          <div class="cover c21"><span class="quality">HD</span><div class="portrait"></div><b>VIKINGS</b></div>
-          <div class="info"><small>6 Temporadas <i class="age red">16</i></small></div>
-        </article>
-      </div>
+      <div class="cards" id="releasesRow"></div>
     </section>
 
-    <section class="row-section" id="minha-lista">
-      <div class="section-head">
+    <section class="content-row" id="series">
+      <div class="row-title">
+        <h2>📺 Séries populares</h2>
+        <button class="see-all">Ver tudo</button>
+      </div>
+      <div class="cards" id="seriesRow"></div>
+    </section>
+
+    <section class="content-row" id="recomendados">
+      <div class="row-title">
+        <h2>Para você</h2>
+        <button class="see-all">Ver tudo</button>
+      </div>
+      <div class="cards" id="recommendedRow"></div>
+    </section>
+
+    <section class="content-row" id="minha-lista">
+      <div class="row-title">
         <h2>＋ Minha Lista</h2>
       </div>
-
-      <div class="empty-list">
+      <div class="cards" id="myListRow"></div>
+      <div class="empty-list" id="emptyList">
         <span>＋</span>
-        <div>
-          <strong>Sua lista ainda está vazia</strong>
-          <p>Na próxima etapa vamos fazer esse botão funcionar de verdade.</p>
-        </div>
+        <strong>Sua lista está vazia</strong>
+        <p>Adicione títulos para assistir depois.</p>
       </div>
     </section>
-
   </section>
 </main>
 
-<nav class="bottom-nav" aria-label="Navegação inferior">
+<nav class="bottom-nav">
   <a class="active" href="#inicio"><span>⌂</span>Início</a>
-  <a href="#filmes"><span>▤</span>Filmes</a>
+  <a href="#filmes"><span>▶</span>Filmes</a>
   <a href="#series"><span>▣</span>Séries</a>
-  <a href="#categorias"><span>▦</span>Categorias</a>
   <a href="#minha-lista"><span>＋</span>Minha Lista</a>
 </nav>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="details-modal" id="detailsModal" aria-hidden="true">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">×</button>
+    <div class="modal-image" id="modalImage"></div>
+    <div class="modal-content">
+      <h2 id="modalTitle">Título</h2>
+      <div class="modal-meta" id="modalMeta"></div>
+      <p id="modalDescription"></p>
+      <div class="modal-actions">
+        <button class="btn-play" id="modalPlay">▶ Assistir</button>
+        <button class="btn-add" id="modalAdd">＋</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<script src="app.js?v=4"></script>
+<div class="toast" id="toast"></div>
+
+<script src="app.js?v=5"></script>
 </body>
 </html>

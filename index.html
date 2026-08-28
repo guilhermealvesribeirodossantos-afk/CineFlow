@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07090f" />
+  <title>CineFlow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="CineFlow">
+      <span class="brand-mark">C</span>
+      <span class="brand-text">CineFlow</span>
+    </a>
 
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#filmes">Filmes</a>
+      <a href="#series">Séries</a>
+      <a href="#minha-lista">Minha Lista</a>
+    </nav>
+
+    <div class="top-actions">
+      <button class="icon-btn" id="searchButton" aria-label="Pesquisar">⌕</button>
+      <button class="profile-btn" aria-label="Perfil">
+        <span class="avatar">BK</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">CINEFLOW ORIGINAL</span>
+        <h1 id="heroTitle">A Última Descoberta</h1>
+        <div class="meta">
+          <span class="match">98% para você</span>
+          <span>2026</span>
+          <span>16</span>
+          <span>2h 04min</span>
+        </div>
+        <p>
+          Em um mundo que mudou para sempre, uma descoberta pode ser a chave
+          para reconstruir tudo — ou destruir o que restou.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="watchHero">▶ Assistir</button>
+          <button class="secondary-btn" id="detailsHero">ⓘ Mais informações</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-shell">
+      <div class="search-panel" id="searchPanel" hidden>
+        <input id="searchInput" type="search" placeholder="Buscar filmes e séries..." autocomplete="off" />
+      </div>
+
+      <section class="rail-section" id="filmes">
+        <div class="section-head">
+          <h2>Em alta agora</h2>
+          <button class="text-btn" data-scroll="trending">Ver tudo</button>
+        </div>
+        <div class="rail" id="trending">
+          <article class="card" tabindex="0" data-title="Horizonte Final">
+            <div class="poster poster-a"><span class="rank">1</span></div>
+            <h3>Horizonte Final</h3>
+            <p>Ação • Ficção</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Ecos da Noite">
+            <div class="poster poster-b"><span class="rank">2</span></div>
+            <h3>Ecos da Noite</h3>
+            <p>Terror • Mistério</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Código Vermelho">
+            <div class="poster poster-c"><span class="rank">3</span></div>
+            <h3>Código Vermelho</h3>
+            <p>Suspense • Ação</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Além do Céu">
+            <div class="poster poster-d"><span class="rank">4</span></div>
+            <h3>Além do Céu</h3>
+            <p>Drama • Sci-Fi</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Distrito 9">
+            <div class="poster poster-e"><span class="rank">5</span></div>
+            <h3>Distrito 9</h3>
+            <p>Ação • Crime</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="rail-section" id="series">
+        <div class="section-head">
+          <h2>Séries populares</h2>
+          <button class="text-btn" data-scroll="seriesRail">Ver tudo</button>
+        </div>
+        <div class="rail" id="seriesRail">
+          <article class="card" tabindex="0" data-title="Cidade Sombria">
+            <div class="poster poster-f"></div>
+            <h3>Cidade Sombria</h3>
+            <p>2 temporadas</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Nova Era">
+            <div class="poster poster-g"></div>
+            <h3>Nova Era</h3>
+            <p>1 temporada</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Fronteira Zero">
+            <div class="poster poster-h"></div>
+            <h3>Fronteira Zero</h3>
+            <p>3 temporadas</p>
+          </article>
+          <article class="card" tabindex="0" data-title="Último Sinal">
+            <div class="poster poster-i"></div>
+            <h3>Último Sinal</h3>
+            <p>1 temporada</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="rail-section" id="minha-lista">
+        <div class="section-head">
+          <h2>Minha Lista</h2>
+          <span class="badge">Em breve</span>
+        </div>
+        <div class="empty-state">
+          <div class="empty-icon">＋</div>
+          <div>
+            <strong>Sua lista vai aparecer aqui</strong>
+            <p>Na próxima etapa vamos ativar favoritos e continuar assistindo.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Navegação móvel">
+    <a href="#inicio" class="active"><span>⌂</span>Início</a>
+    <a href="#filmes"><span>▶</span>Filmes</a>
+    <a href="#series"><span>▦</span>Séries</a>
+    <a href="#minha-lista"><span>＋</span>Lista</a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

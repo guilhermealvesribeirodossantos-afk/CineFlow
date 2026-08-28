@@ -1,150 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#07090f" />
-  <title>CineFlow</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050608">
+  <title>CineFlow — Filmes e Séries</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="CineFlow">
-      <span class="brand-mark">C</span>
-      <span class="brand-text">CineFlow</span>
-    </a>
+  <header class="header" id="header">
+    <a href="#inicio" class="logo">CINE<span>FLOW</span></a>
 
-    <nav class="desktop-nav" aria-label="Navegação principal">
-      <a href="#inicio" class="active">Início</a>
+    <nav class="desktop-menu">
+      <a class="active" href="#inicio">Início</a>
       <a href="#filmes">Filmes</a>
       <a href="#series">Séries</a>
+      <a href="#categorias">Categorias</a>
       <a href="#minha-lista">Minha Lista</a>
     </nav>
 
-    <div class="top-actions">
-      <button class="icon-btn" id="searchButton" aria-label="Pesquisar">⌕</button>
-      <button class="profile-btn" aria-label="Perfil">
-        <span class="avatar">BK</span>
-      </button>
+    <div class="header-actions">
+      <button class="search-toggle" id="searchToggle" aria-label="Abrir busca">⌕</button>
+      <div class="search-box" id="searchBox">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Buscar..." autocomplete="off">
+      </div>
+      <button class="bell" aria-label="Notificações">♢</button>
+      <button class="profile" aria-label="Perfil"><span>BK</span></button>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="inicio" aria-labelledby="heroTitle">
-      <div class="hero-overlay"></div>
+    <section class="hero" id="inicio">
+      <div class="hero-art">
+        <div class="sun"></div>
+        <div class="city city-back"></div>
+        <div class="city city-front"></div>
+        <div class="character">
+          <div class="head"></div>
+          <div class="body"></div>
+          <div class="backpack"></div>
+        </div>
+      </div>
+      <div class="hero-shade"></div>
+
       <div class="hero-content">
-        <span class="eyebrow">CINEFLOW ORIGINAL</span>
-        <h1 id="heroTitle">A Última Descoberta</h1>
-        <div class="meta">
-          <span class="match">98% para você</span>
-          <span>2026</span>
-          <span>16</span>
-          <span>2h 04min</span>
+        <div class="original">CINEFLOW ORIGINAL</div>
+        <h1>THE LAST<br><strong>DISCOVERY</strong></h1>
+        <div class="hero-meta">
+          <span>2026</span><span class="age">16</span><span>2h 18min</span>
+          <span class="quality">4K</span><span>◈ Dolby Vision</span>
         </div>
-        <p>
-          Em um mundo que mudou para sempre, uma descoberta pode ser a chave
-          para reconstruir tudo — ou destruir o que restou.
-        </p>
-        <div class="hero-actions">
-          <button class="primary-btn" id="watchHero">▶ Assistir</button>
-          <button class="secondary-btn" id="detailsHero">ⓘ Mais informações</button>
+        <p>Em um mundo pós-apocalíptico, um grupo de sobreviventes descobre um segredo que pode mudar o destino da humanidade.</p>
+        <div class="hero-buttons">
+          <button class="watch-btn" id="watchHero">▶ <span>Assistir</span></button>
+          <button class="info-btn" id="infoHero">ⓘ <span>Mais informações</span></button>
         </div>
+      </div>
+
+      <div class="hero-dots">
+        <button class="dot active"></button><button class="dot"></button>
+        <button class="dot"></button><button class="dot"></button>
       </div>
     </section>
 
-    <section class="content-shell">
-      <div class="search-panel" id="searchPanel" hidden>
-        <input id="searchInput" type="search" placeholder="Buscar filmes e séries..." autocomplete="off" />
-      </div>
-
-      <section class="rail-section" id="filmes">
-        <div class="section-head">
-          <h2>Em alta agora</h2>
-          <button class="text-btn" data-scroll="trending">Ver tudo</button>
-        </div>
-        <div class="rail" id="trending">
-          <article class="card" tabindex="0" data-title="Horizonte Final">
-            <div class="poster poster-a"><span class="rank">1</span></div>
-            <h3>Horizonte Final</h3>
-            <p>Ação • Ficção</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Ecos da Noite">
-            <div class="poster poster-b"><span class="rank">2</span></div>
-            <h3>Ecos da Noite</h3>
-            <p>Terror • Mistério</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Código Vermelho">
-            <div class="poster poster-c"><span class="rank">3</span></div>
-            <h3>Código Vermelho</h3>
-            <p>Suspense • Ação</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Além do Céu">
-            <div class="poster poster-d"><span class="rank">4</span></div>
-            <h3>Além do Céu</h3>
-            <p>Drama • Sci-Fi</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Distrito 9">
-            <div class="poster poster-e"><span class="rank">5</span></div>
-            <h3>Distrito 9</h3>
-            <p>Ação • Crime</p>
-          </article>
+    <div class="catalog">
+      <section class="row-section" id="filmes">
+        <div class="row-title"><h2>Em alta agora</h2><button data-target="trending">›</button></div>
+        <div class="movie-row" id="trending">
+          <article class="movie-card" data-title="The Last Discovery"><div class="poster p1"><span class="poster-title">THE LAST<br>DISCOVERY</span></div><h3>The Last Discovery</h3><small>98% relevante</small></article>
+          <article class="movie-card" data-title="Poder e Lei"><div class="poster p2"><span class="poster-title">PODER<br>E LEI</span></div><h3>Poder e Lei</h3><small>96% relevante</small></article>
+          <article class="movie-card" data-title="Sombra dos Ossos"><div class="poster p3"><span class="poster-title">SOMBRA<br>DOS OSSOS</span></div><h3>Sombra dos Ossos</h3><small>94% relevante</small></article>
+          <article class="movie-card" data-title="Amor em Paris"><div class="poster p4"><span class="poster-title">AMOR<br>EM PARIS</span></div><h3>Amor em Paris</h3><small>91% relevante</small></article>
+          <article class="movie-card" data-title="O Refúgio"><div class="poster p5"><span class="poster-title">O REFÚGIO</span></div><h3>O Refúgio</h3><small>97% relevante</small></article>
+          <article class="movie-card" data-title="Redenção"><div class="poster p6"><span class="poster-title">REDENÇÃO</span></div><h3>Redenção</h3><small>93% relevante</small></article>
+          <article class="movie-card" data-title="Entre Dois Mundos"><div class="poster p7"><span class="poster-title">ENTRE DOIS<br>MUNDOS</span></div><h3>Entre Dois Mundos</h3><small>90% relevante</small></article>
+          <article class="movie-card" data-title="Risos Garantidos"><div class="poster p8"><span class="poster-title">RISOS<br>GARANTIDOS</span></div><h3>Risos Garantidos</h3><small>89% relevante</small></article>
         </div>
       </section>
 
-      <section class="rail-section" id="series">
-        <div class="section-head">
-          <h2>Séries populares</h2>
-          <button class="text-btn" data-scroll="seriesRail">Ver tudo</button>
-        </div>
-        <div class="rail" id="seriesRail">
-          <article class="card" tabindex="0" data-title="Cidade Sombria">
-            <div class="poster poster-f"></div>
-            <h3>Cidade Sombria</h3>
-            <p>2 temporadas</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Nova Era">
-            <div class="poster poster-g"></div>
-            <h3>Nova Era</h3>
-            <p>1 temporada</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Fronteira Zero">
-            <div class="poster poster-h"></div>
-            <h3>Fronteira Zero</h3>
-            <p>3 temporadas</p>
-          </article>
-          <article class="card" tabindex="0" data-title="Último Sinal">
-            <div class="poster poster-i"></div>
-            <h3>Último Sinal</h3>
-            <p>1 temporada</p>
-          </article>
+      <section class="row-section">
+        <div class="row-title"><h2>Lançamentos</h2><button data-target="releases">›</button></div>
+        <div class="movie-row" id="releases">
+          <article class="movie-card" data-title="Noite Infinita"><div class="poster p9"><span class="poster-title">NOITE<br>INFINITA</span></div><h3>Noite Infinita</h3><small>Novo</small></article>
+          <article class="movie-card" data-title="Além do Tempo"><div class="poster p10"><span class="poster-title">ALÉM DO<br>TEMPO</span></div><h3>Além do Tempo</h3><small>Novo</small></article>
+          <article class="movie-card" data-title="O Caminho de Casa"><div class="poster p11"><span class="poster-title">O CAMINHO<br>DE CASA</span></div><h3>O Caminho de Casa</h3><small>Novo</small></article>
+          <article class="movie-card" data-title="Mentes Perigosas"><div class="poster p12"><span class="poster-title">MENTES<br>PERIGOSAS</span></div><h3>Mentes Perigosas</h3><small>Novo</small></article>
+          <article class="movie-card" data-title="A Herança"><div class="poster p13"><span class="poster-title">A HERANÇA</span></div><h3>A Herança</h3><small>Novo</small></article>
+          <article class="movie-card" data-title="Caçada Silenciosa"><div class="poster p14"><span class="poster-title">CAÇADA<br>SILENCIOSA</span></div><h3>Caçada Silenciosa</h3><small>Novo</small></article>
+          <article class="movie-card" data-title="Do Outro Lado"><div class="poster p15"><span class="poster-title">DO OUTRO<br>LADO</span></div><h3>Do Outro Lado</h3><small>Novo</small></article>
         </div>
       </section>
 
-      <section class="rail-section" id="minha-lista">
-        <div class="section-head">
-          <h2>Minha Lista</h2>
-          <span class="badge">Em breve</span>
-        </div>
-        <div class="empty-state">
-          <div class="empty-icon">＋</div>
-          <div>
-            <strong>Sua lista vai aparecer aqui</strong>
-            <p>Na próxima etapa vamos ativar favoritos e continuar assistindo.</p>
-          </div>
+      <section class="row-section" id="series">
+        <div class="row-title"><h2>Séries populares</h2><button data-target="popularSeries">›</button></div>
+        <div class="movie-row" id="popularSeries">
+          <article class="movie-card" data-title="Reinos do Norte"><div class="poster p16"><span class="poster-title">REINOS<br>DO NORTE</span></div><h3>Reinos do Norte</h3><small>4 temporadas</small></article>
+          <article class="movie-card" data-title="Coisas Estranhas"><div class="poster p17"><span class="poster-title">COISAS<br>ESTRANHAS</span></div><h3>Coisas Estranhas</h3><small>5 temporadas</small></article>
+          <article class="movie-card" data-title="O Caçador"><div class="poster p18"><span class="poster-title">O CAÇADOR</span></div><h3>O Caçador</h3><small>3 temporadas</small></article>
+          <article class="movie-card" data-title="O Golpe"><div class="poster p19"><span class="poster-title">O GOLPE</span></div><h3>O Golpe</h3><small>5 temporadas</small></article>
+          <article class="movie-card" data-title="Os Mortos"><div class="poster p20"><span class="poster-title">OS MORTOS</span></div><h3>Os Mortos</h3><small>8 temporadas</small></article>
+          <article class="movie-card" data-title="Advogados"><div class="poster p21"><span class="poster-title">ADVOGADOS</span></div><h3>Advogados</h3><small>6 temporadas</small></article>
         </div>
       </section>
-    </section>
+
+      <section class="row-section" id="minha-lista">
+        <div class="row-title"><h2>Minha Lista</h2></div>
+        <div class="list-placeholder"><span>＋</span><div><b>Sua lista está esperando por você</b><p>Em breve você poderá salvar filmes e séries aqui.</p></div></div>
+      </section>
+    </div>
   </main>
 
-  <nav class="mobile-nav" aria-label="Navegação móvel">
+  <nav class="mobile-nav">
     <a href="#inicio" class="active"><span>⌂</span>Início</a>
     <a href="#filmes"><span>▶</span>Filmes</a>
     <a href="#series"><span>▦</span>Séries</a>
-    <a href="#minha-lista"><span>＋</span>Lista</a>
+    <a href="#minha-lista"><span>＋</span>Minha Lista</a>
   </nav>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
+  <div class="toast" id="toast"></div>
   <script src="app.js"></script>
 </body>
 </html>
